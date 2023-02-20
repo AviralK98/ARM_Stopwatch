@@ -1,0 +1,38 @@
+/*
+ * sseg.c
+ *
+ * This Code is used to implement the bit- mapping on the 7-Segment display
+ * according to the code flow.
+ *
+ *  Created on: 21 Mar 2022
+ *      Author: Aviral
+ */
+
+
+
+#include "sseg.h"
+
+#define High_D 2 // 2 High address based displays.
+#define Low_D  4 // 4 Low address based displays.
+
+
+//Bit-Mapping for the 7-Segment Display.
+
+		unsigned char mapping[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x67, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71, 0x40};
+
+
+
+
+
+
+
+// For the display segment low; 0-4.
+
+	volatile unsigned char *Low_Addr = (unsigned char *) 0xFF200020;
+
+// For the display segment high; 5-6.
+
+		volatile unsigned char *High_Addr = (unsigned char *) 0xFF200030;
+
+
+

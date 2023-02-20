@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ARM_A9_STOPWATCH/WDT&apos; to &apos;WDT.h&apos;" description="Rename resource &apos;WDT&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WDT" name="WDT.h" stamp="1647860160351" updateReferences="true"/>
+</session>

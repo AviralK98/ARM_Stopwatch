@@ -1,0 +1,115 @@
+/*
+ * main.c
+ *
+ *The main part/method for the execution of the code
+ *
+ *  Created on: 21 Mar 2022
+ *      Author: Aviral
+ */
+
+
+
+
+#include "ini.h"
+#include "ptimer.h"
+#include "sseg.h"
+#include "WDT.h"
+
+
+// Initializing the  timer interrupt pointer with the base address.
+
+	volatile unsigned int *int_time_pvalue  = (unsigned int *)0xFFC08000;
+
+// Initializing the interrupt with the base address.
+
+	volatile unsigned int *time_int_value = (unsigned int *) 0xFFFEC60C;
+
+
+
+
+
+
+
+	// Function used to count minutes i.e hour is zero | MM : SS : MS MS
+
+	void minutes ()
+
+		{
+
+
+		// Timer Interrupt '1'.
+
+		while( ( *time_int_value & 0x1 )  )
+
+			{
+				// Resetting the Interrupt
+				int_reset();
+
+
+				// Mili-Seconds are clocked
+
+				ms = ms + 1;
+
+
+				if(ms < 100 )
+
+				{
+
+				two_seg(0,ms); // Clocking Mili-Seconds.
+
+				}
+
+				else if(sec < 59)
+
+					{
+
+
+					if( ((sec == 60) )&& (mins > 0))
+
+						{
+
+							unset_segment();
+							ms = 0; // Mili-Seconds are rested.
+							sec = sec + 1; // Seconds are clocked.
+					}
+					else
+						{
+							ms = 0;
+							sec = sec + 1;
+							//Displaying on the double segments.
+							two_seg(2,sec);
+							two_seg(4,mins);
+				}
+
+			}
+				else if(mins < 59)
+
+					{
+
+
+					unset_segment();
+					sec = 0;
+					ms = 0;
+					mins = mins + 1; // Minutes are Clocked
+
+
+			}
+
+				else
+
+				{
+					unset_segment();
+					hour_counter = 0;
+					mins = 0;
+					sec = 0;
+					ms = 0;
+					h = h + 1; // Clocking Hours
+					ini_nine( 225000000 ); // For 1 second, the timer is set to reset.
+
+			}
+
+		}
+
+	}
+
+

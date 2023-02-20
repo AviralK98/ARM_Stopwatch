@@ -1,0 +1,28 @@
+/*
+ * main.c
+ *
+ *The main part/method for the execution of the code
+ *
+ *  Created on: 21 Mar 2022
+ *      Author: Aviral
+ */
+
+
+
+
+#include "ini.h"
+#include "ptimer.h"
+#include "sseg.h"
+#include "WDT.h"
+
+
+// Initializing the  timer interrupt pointer with the base address.
+
+	volatile unsigned int *int_time_pvalue  = (unsigned int *)0xFFC08000;
+
+// Initializing the interrupt with the base address.
+
+	volatile unsigned int *time_int_value = (unsigned int *) 0xFFFEC60C;
+
+
+

@@ -1,10 +1,11 @@
-# ELEC5620M Written Assignment Repository - Stopwatch 
+# ARM A9 Stopwatch 
 
-# .project and.cproject files and .c and .h files are located in the ARM-A9 Stopwatch Folder along with the .metadata.
+# Note 
+This repository contains 'ELEC5620M-Resouces' folder that provides the sample code and the DebugConfig files that are needed to configure and run the code. This folder was provided by the University of Leeds. '.project and.cproject files and .c and .h files are located in the ARM-A9 Stopwatch Folder'. 
 
 
 # INTRODUCTION
-In this assignment, the task to implement a stopwatch using the ARM A9 Private timer. To achieve this 7 different source files were made. This 
+In this project, the task to implement a stopwatch using the ARM A9 Private timer. To achieve this 7 different source files were made. This 
 
 # Watchdog Timer
 A file was created to initialise the watchdog timer and use it to reset the system to it's initial state.
